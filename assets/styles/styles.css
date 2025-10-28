@@ -49,11 +49,11 @@ header {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 20px; /* added vertical padding */
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 60px;
+  height: auto; /* remove fixed height to allow natural spacing */
 }
 
 /* Logo */
@@ -142,51 +142,98 @@ nav a:hover {
   border: 1px solid var(--clr-primary);
 }
 
-/* Mobile menu button */
-.menu-toggle {
+/* Back to Top Button */
+#backToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 100;
+  background-color: #674515; /* WebCrunch primary color */
+  color: white;
+  border: none;
+  outline: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   display: none;
+  transition: all 0.3s ease;
+}
+
+#backToTop:hover {
+  background-color: #1f2937; /* secondary color */
+  transform: translateY(-3px);
+}
+
+/* ===========================
+   HAMBURGER ICON FIX
+   =========================== */
+
+/* The button itself */
+.menu-toggle {
+  display: none; /* hidden on desktop */
   background: none;
   border: none;
   cursor: pointer;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   height: 30px;
   width: 30px;
+  z-index: 1000;
 }
 
+/* The three horizontal bars */
 .menu-toggle span {
   display: block;
-  width: 24px;
-  height: 2px;
-  background: #333;
+  width: 25px;
+  height: 3px;
+  background: #0f387d; /* ✅ Use your brand color (visible on white) */
   margin: 4px 0;
   border-radius: 2px;
   transition: all 0.3s ease;
 }
 
-/* Animate to "X" */
+/* Animate to "X" when active */
 .menu-toggle.active span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
+
 .menu-toggle.active span:nth-child(2) {
   opacity: 0;
 }
+
 .menu-toggle.active span:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Mobile Menu */
+/* Show hamburger icon on tablets and phones */
+@media (max-width: 992px) {
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+/* ===========================
+   MOBILE MENU (CENTERED)
+   =========================== */
 .mobile-menu {
+  display: flex;
+  flex-direction: column; /* vertical stacking */
+  align-items: center; /* ✅ centers horizontally */
+  text-align: center; /* ✅ centers link text */
   overflow: hidden;
   max-height: 0;
   transition: max-height 0.4s ease, padding 0.3s ease;
-  flex-direction: column;
-  gap: 15px;
+  gap: 10px;
   padding: 0 20px;
-  background: white;
+  background: #fff;
   border-top: 1px solid #eee;
 }
 
+/* Menu links */
 .mobile-menu a {
   opacity: 0;
   transform: translateY(10px);
@@ -194,12 +241,20 @@ nav a:hover {
   font-weight: 500;
   color: #333;
   padding: 10px 0;
+  width: 100%;
+  display: block;
+  transition: color 0.3s ease;
 }
 
-/* Slide-down + staggered fade */
+/* Hover effect (optional aesthetic touch) */
+.mobile-menu a:hover {
+  color: #0f387d; /* your brand color */
+}
+
+/* Slide-down + staggered fade-in */
 .mobile-menu.active {
   max-height: 500px;
-  padding: 20px;
+  padding: 20px 0;
 }
 
 .mobile-menu.active a {
@@ -244,17 +299,44 @@ nav a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 2rem 5%;
-  min-height: 100vh;
+  padding: 7rem 5% 0 5%;
+  height: 100vh;
   gap: 1rem;
+  margin-bottom: 80px;
 }
 
 .hero-left {
   flex: 1;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   max-width: 600px;
+  z-index: 1;
+}
+
+/* Gradient Circle Decoration */
+.hero-left::after {
+  content: "";
+  position: absolute;
+  top: 95px;
+  right: 90px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, #e1bb43, #e72109, #e1bb43);
+  z-index: 1; /* behind the h1 but above background */
+  opacity: 0.6; /* soft blend for visual balance */
+  animation: rotateGradient 6s linear infinite;
+}
+
+@keyframes rotateGradient {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .hero-left small {
@@ -265,6 +347,11 @@ nav a:hover {
   font-size: 20px;
   color: var(--clr-accent);
   margin-bottom: 1rem;
+}
+
+.hero-left h1 {
+  position: relative;
+  z-index: 2;
 }
 
 .hero-left h1,
@@ -319,16 +406,29 @@ nav a:hover {
 /* Brief Overview Section */
 .overview-section {
   padding: 60px 1%;
+  text-align: center;
 }
 
 .overview-section h3 {
-  text-align: center;
+  position: relative;
+  display: inline-block;
   font-weight: 700;
   font-size: 36px;
-  margin-bottom: 7rem;
+  margin-bottom: 6rem;
   line-height: 100%;
   letter-spacing: 0%;
   color: var(--clr-body);
+}
+
+/* Decorative Icon at Top Right */
+.overview-heading-icon {
+  position: absolute;
+  top: 950px;
+  right: 120px;
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  z-index: 1;
 }
 
 .overview-container {
@@ -398,7 +498,9 @@ nav a:hover {
 }
 
 .who-text {
-  background: url("/assets/images/who-bg-image.png");
+  background-color: #f5f5f5;
+  border-bottom-right-radius: 50px;
+  border-top-left-radius: 50px;
   padding: 30px;
   max-width: 500px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -413,8 +515,19 @@ nav a:hover {
   position: absolute;
   width: 50px;
   height: 70px;
-  top: -3%;
-  left: -2%;
+  top: -7%;
+  left: -7%;
+  animation: floatDecor 4s ease-in-out infinite;
+}
+
+@keyframes floatDecor {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 .who-text h5 {
@@ -464,6 +577,8 @@ nav a:hover {
 
 /* Blog Section */
 .blog {
+  position: relative;
+  z-index: 1;
   padding: 60px 20px;
   text-align: center;
   margin-bottom: 100px;
@@ -471,20 +586,46 @@ nav a:hover {
 
 .blog .section-intro {
   color: #e72109;
-  margin-bottom: 8px;
-  font-weight: 700;
-  line-height: 100%;
-  letter-spacing: 0%;
-  font-size: 20px;
 }
 
 .blog h3 {
+  position: relative;
+  z-index: 2; /* keep text above the gradient circle */
   font-size: 36px;
   margin-bottom: 8px;
   color: var(--clr-body);
-  font-size: 600;
+  font-weight: 600;
   line-height: 60px;
   letter-spacing: 0%;
+}
+
+/* Rotating Gradient Circle Behind h3 */
+.blog h3::after {
+  content: "";
+  position: absolute;
+  top: 60%;
+  left: 37%;
+  transform: translate(
+    60%,
+    -120%
+  ); /* moves it slightly to the top-right of the heading */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, #e1bb43, #e72109, #e1bb43);
+  z-index: 1; /* behind h3 */
+  opacity: 0.5;
+  animation: rotateGradient 6s linear infinite;
+}
+
+/* Animation */
+@keyframes rotateGradient {
+  from {
+    transform: translate(60%, -120%) rotate(0deg);
+  }
+  to {
+    transform: translate(60%, -120%) rotate(360deg);
+  }
 }
 
 .blog-subheading {
@@ -683,6 +824,13 @@ nav a:hover {
 }
 
 /* Overlapping Donate Section */
+/* Wrapper (ensures pseudo-elements can go behind section) */
+.donate-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Overlapping Donate Section */
 .donate-overlap {
   background: var(--clr-primary);
   color: #fff;
@@ -690,19 +838,44 @@ nav a:hover {
   padding-top: 100px;
   margin-bottom: -12rem; /* overlaps footer */
   position: relative;
-  z-index: 2;
   border-radius: 12px;
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
   height: 404px;
+  overflow: visible;
+  z-index: 1; /* sit above pseudo-elements */
+}
+
+/* Decorative icons — now on wrapper */
+.donate-wrapper::before,
+.donate-wrapper::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: url("/assets/images/donate-icon.png") no-repeat center/contain;
+  z-index: 0; /* behind donate section */
+}
+
+/* Top-left icon */
+.donate-wrapper::before {
+  top: calc(50% - 250px);
+  left: calc(50% - 650px);
+  transform: rotate(15deg);
+}
+
+/* Bottom-right icon */
+.donate-wrapper::after {
+  bottom: calc(50% - 250px);
+  right: calc(50% - 650px);
+  transform: rotate(-15deg);
 }
 
 .donate-overlap h2 {
   font-size: 50px;
   line-height: 120%;
   font-weight: 700;
-  letter-spacing: 0%;
   margin-bottom: 1rem;
 }
 
@@ -715,13 +888,11 @@ nav a:hover {
   cursor: pointer;
   font-size: 1rem;
   line-height: 100%;
-  letter-spacing: 0%;
 }
 
 .donate-sec-btn:hover {
-  background: var(--clr-primary);
+  background: #674515;
   color: #fff;
-  border: 1px solid var(--clr-accent);
 }
 
 /* Footer Styles */
@@ -730,7 +901,7 @@ nav a:hover {
   color: #ccc;
   padding: 18rem 2rem 2rem;
   position: relative;
-  z-index: 1;
+  z-index: -1;
 }
 
 .footer-content {
@@ -809,117 +980,100 @@ nav a:hover {
   font-weight: 300;
 }
 
-@media (max-width: 414px) {
-  .hero-decor,
-  .who-decor {
+/* ===========================
+   RESPONSIVE DESIGN FIXES
+   =========================== */
+@media (max-width: 992px) {
+  /* Header */
+  nav {
     display: none;
   }
 
-  .who-text h2 {
-    font-size: 30px;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-decor,
-  .who-decor {
+  .contact-btn,
+  .donate-btn {
     display: none;
-  }
-
-  .donate-overlap h2 {
-    font-size: 30px;
-  }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  nav,
-  .buttons {
-    display: none;
-  }
-
-  .hero-decor {
-    top: 50%;
-    right: 16%;
   }
 
   .menu-toggle {
     display: flex;
   }
 
-  .mobile-menu {
-    display: flex;
+  /* Hero Section */
+  .hero {
+    flex-direction: column;
+    height: auto;
+    padding: 7rem 5% 2rem;
+    text-align: center;
+  }
+
+  .hero-left {
+    align-items: center;
+    max-width: 100%;
+  }
+
+  .hero-left h1 {
+    font-size: 42px;
+    line-height: 48px;
+  }
+
+  .hero-left p {
+    max-width: 90%;
+  }
+
+  .hero-right {
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .hero-image {
+    max-width: 350px;
+  }
+
+  .hero-decor {
+    display: none;
+  }
+
+  /* Overview Section */
+  .overview-section h3 {
+    font-size: 28px;
+    margin-bottom: 4rem;
+  }
+
+  .overview-heading-icon {
+    top: 69rem;
+    right: 55px;
+    width: 80px;
+    height: 80px;
   }
 
   .overview-container {
     flex-direction: column;
+    align-items: center;
   }
 
-  .contact-container {
+  .overview-box {
+    width: 90%;
+  }
+
+  /* Who We Are */
+  .who-we-are {
     flex-direction: column;
+    position: relative;
+    margin: 80px auto;
   }
 
-  .contact-right {
-    width: 100%;
-  }
-
-  .name-fields {
-    flex-direction: column;
-  }
-
-  .footer-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .footer-socials {
-    justify-content: center;
-  }
-}
-
-/* Responsive Styles */
-@media (max-width: 900px) {
-  .hero {
-    flex-direction: column;
-    text-align: center;
-    padding: 5rem 1.5rem;
-  }
-
-  .hero-left {
-    padding-right: 0;
-  }
-
-  .hero-left h1 {
-    font-size: 2.2rem;
-  }
-
-  .hero-left p {
-    margin: 0 auto 1.5rem;
-  }
-
-  .hero-decor {
-    top: 52%;
-    right: 22%;
-  }
-
-  .who-decor {
-    top: -1%;
-    left: 18%;
-  }
-
-  .buttons {
-    justify-content: center;
-  }
-
-  .hero-right {
-    margin-top: 2rem;
-  }
   .who-text {
     position: static;
     transform: none;
-    margin-bottom: 20px;
-    box-shadow: none;
-    text-align: center;
+    max-width: 90%;
+    margin-bottom: 2rem;
+  }
+
+  .who-decor {
+    width: 50px;
+    height: 50px;
+    top: 0%;
+    left: 3.4%;
   }
 
   .who-image {
@@ -927,6 +1081,234 @@ nav a:hover {
   }
 
   .who-image img {
+    width: 90%;
+  }
+
+  /* Blog */
+  .blog h3 {
+    font-size: 30px;
+  }
+
+  .blog-card {
+    width: 90%;
+    height: 300px;
+  }
+
+  .blog h3::after {
+    transform: translate(40%, -110%);
+    width: 35px;
+    height: 35px;
+    left: 30%;
+  }
+
+  /* Contact */
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-left,
+  .contact-right {
     width: 100%;
+  }
+
+  .contact-left img {
+    max-width: 150px;
+  }
+
+  .contact-form .name-fields {
+    flex-direction: column;
+  }
+
+  .donate-overlap {
+    height: auto;
+    padding: 80px 40px;
+    margin-bottom: -10rem;
+  }
+
+  .donate-overlap h2 {
+    font-size: 40px;
+    line-height: 1.3;
+  }
+
+  .donate-sec-btn {
+    font-size: 0.95rem;
+    padding: 0.7rem 1.4rem;
+  }
+
+  .donate-wrapper::before,
+  .donate-wrapper::after {
+    width: 80px;
+    height: 80px;
+  }
+
+  .donate-wrapper::before {
+    top: calc(50% - 200px);
+    left: calc(50% - 500px);
+  }
+
+  .donate-wrapper::after {
+    bottom: calc(50% - 200px);
+    right: calc(50% - 500px);
+  }
+
+  /* Footer */
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .footer-section ul {
+    padding: 0;
+    list-style: none;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-left::after {
+    top: 95px;
+    right: 90px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .overview-heading-icon {
+    top: 70rem;
+    right: 55px;
+    width: 80px;
+    height: 80px;
+  }
+
+  .donate-overlap {
+    padding: 60px 25px;
+    margin-bottom: -8rem;
+  }
+
+  .donate-overlap h2 {
+    font-size: 32px;
+    line-height: 1.3;
+  }
+
+  .donate-sec-btn {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .donate-wrapper::before,
+  .donate-wrapper::after {
+    width: 60px;
+    height: 60px;
+    opacity: 0.7;
+  }
+
+  .donate-wrapper::before {
+    top: -30px;
+    left: -30px;
+  }
+
+  .donate-wrapper::after {
+    bottom: -30px;
+    right: -30px;
+  }
+}
+
+/* Phones (max-width: 600px) */
+@media (max-width: 600px) {
+  .hero-left h1 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .hero-left small {
+    font-size: 16px;
+  }
+
+  .buttons a {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .overview-box h4 {
+    font-size: 20px;
+  }
+
+  .overview-box p {
+    font-size: 14px;
+  }
+
+  .who-text h2 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .who-text p {
+    font-size: 14px;
+  }
+
+  .blog-card {
+    height: 250px;
+  }
+
+  .contact-section h2 {
+    font-size: 28px;
+  }
+
+  .donate-overlap h2 {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .donate-sec-btn {
+    padding: 0.8rem 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-left::after {
+    top: 75px;
+    right: 40px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .overview-heading-icon {
+    top: 76rem;
+    right: 22px;
+    width: 60px;
+    height: 60px;
+  }
+
+  .donate-overlap {
+    padding: 50px 20px;
+    margin-bottom: -6rem;
+  }
+
+  .donate-overlap h2 {
+    font-size: 26px;
+    line-height: 1.2;
+  }
+
+  .donate-sec-btn {
+    font-size: 0.85rem;
+    padding: 0.55rem 1.1rem;
+  }
+
+  .donate-wrapper::before,
+  .donate-wrapper::after {
+    width: 50px;
+    height: 50px;
+    opacity: 0.6;
+  }
+
+  .donate-wrapper::before {
+    top: -25px;
+    left: -25px;
+  }
+
+  .donate-wrapper::after {
+    bottom: -25px;
+    right: -25px;
   }
 }
