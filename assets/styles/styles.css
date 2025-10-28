@@ -24,7 +24,6 @@
 body {
   font-family: var(--ff-primary);
   color: var(--clr-body);
-  overflow: hidden;
 }
 
 h1,
@@ -791,33 +790,6 @@ nav a:hover {
   margin-left: auto;
   margin-right: auto;
   height: 404px;
-  overflow: visible;
-  z-index: 1; /* sit above pseudo-elements */
-}
-
-/* Decorative icons — now on wrapper */
-.donate-wrapper::before,
-.donate-wrapper::after {
-  content: "";
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  background: url("/assets/images/donate-icon.png") no-repeat center/contain;
-  z-index: 0; /* behind donate section */
-}
-
-/* Top-left icon */
-.donate-wrapper::before {
-  top: calc(50% - 250px);
-  left: calc(50% - 650px);
-  transform: rotate(15deg);
-}
-
-/* Bottom-right icon */
-.donate-wrapper::after {
-  bottom: calc(50% - 250px);
-  right: calc(50% - 650px);
-  transform: rotate(-15deg);
 }
 
 .donate-overlap h2 {
