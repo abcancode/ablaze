@@ -315,30 +315,6 @@ nav a:hover {
   z-index: 1;
 }
 
-/* Gradient Circle Decoration */
-.hero-left::after {
-  content: "";
-  position: absolute;
-  top: 95px;
-  right: 90px;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background: conic-gradient(from 0deg, #e1bb43, #e72109, #e1bb43);
-  z-index: 1; /* behind the h1 but above background */
-  opacity: 0.6; /* soft blend for visual balance */
-  animation: rotateGradient 6s linear infinite;
-}
-
-@keyframes rotateGradient {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .hero-left small {
   display: block;
   font-weight: 700;
@@ -597,35 +573,6 @@ nav a:hover {
   font-weight: 600;
   line-height: 60px;
   letter-spacing: 0%;
-}
-
-/* Rotating Gradient Circle Behind h3 */
-.blog h3::after {
-  content: "";
-  position: absolute;
-  top: 60%;
-  left: 37%;
-  transform: translate(
-    60%,
-    -120%
-  ); /* moves it slightly to the top-right of the heading */
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: conic-gradient(from 0deg, #e1bb43, #e72109, #e1bb43);
-  z-index: 1; /* behind h3 */
-  opacity: 0.5;
-  animation: rotateGradient 6s linear infinite;
-}
-
-/* Animation */
-@keyframes rotateGradient {
-  from {
-    transform: translate(60%, -120%) rotate(0deg);
-  }
-  to {
-    transform: translate(60%, -120%) rotate(360deg);
-  }
 }
 
 .blog-subheading {
@@ -1016,6 +963,10 @@ nav a:hover {
     line-height: 48px;
   }
 
+  .hero-left::after {
+    display: none;
+  }
+
   .hero-left p {
     max-width: 90%;
   }
@@ -1138,8 +1089,8 @@ nav a:hover {
 
   .donate-wrapper::before,
   .donate-wrapper::after {
-    width: 80px;
-    height: 80px;
+    width: 30px;
+    height: 30px;
   }
 
   .donate-wrapper::before {
@@ -1267,10 +1218,7 @@ nav a:hover {
 
 @media (max-width: 480px) {
   .hero-left::after {
-    top: 75px;
-    right: 40px;
-    width: 30px;
-    height: 30px;
+    display: none;
   }
 
   .overview-heading-icon {
