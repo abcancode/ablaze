@@ -428,7 +428,8 @@ nav a:hover {
   justify-content: center;
   align-items: center;
   position: relative;
-  z-index: 2;
+  z-index: 2; /* main content stays on top */
+  overflow: visible; /* allow child to go behind */
 }
 
 .hero-image {
@@ -439,22 +440,12 @@ nav a:hover {
 
 .hero-decor {
   position: absolute;
-  width: 90px;
-  height: 140px;
-  top: 10%;
-  right: 5%;
-  z-index: 1;
+  width: 70px;
+  height: 110px;
+  top: 18%;
+  right: 7%;
+  z-index: -1; /* moves it behind all other elements */
   opacity: 0.8;
-  animation: floatDecor 6s ease-in-out infinite alternate;
-}
-
-@keyframes floatDecor {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-15px);
-  }
 }
 
 /* ============================= */
