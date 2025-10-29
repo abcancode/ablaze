@@ -4,9 +4,10 @@
   --ff-primary: "Lexend", sans-serif;
   --ff-secondary: "Sora", sans-serif;
 
-  --clr-body: #474747;
-  --clr-primary: #fa5537;
-  --clr-accent: #fbecdc;
+  --clr-contrast: #fd6b07;
+  --clr-primary: #e1bb43;
+  --clr-secondary: #674515;
+  --clr-accent: #e7200b;
   --clr-hdr-bottom: #aea5a540;
   --clr-text: #7d8091;
 }
@@ -23,6 +24,7 @@
 body {
   font-family: var(--ff-primary);
   color: var(--clr-body);
+  scroll-behavior: smooth;
 }
 
 h1,
@@ -48,11 +50,11 @@ header {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 20px; /* added vertical padding */
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 60px;
+  height: auto; /* remove fixed height to allow natural spacing */
 }
 
 /* Logo */
@@ -88,7 +90,7 @@ nav a:hover {
 }
 
 .buttons a {
-  padding: 14px 34px;
+  padding: 10px 44px;
   border-radius: 5px;
   font-weight: 500;
   text-decoration: none;
@@ -99,9 +101,15 @@ nav a:hover {
 .contact-btn,
 .community-btn,
 .mobile-contact-btn {
-  border: 1px solid var(--clr-primary);
-  color: var(--clr-primary);
-  background-color: #fff;
+  background: #fff;
+  color: #1f2937;
+  border: 2px solid transparent;
+  border-image: linear-gradient(90deg, #e1bb43, #f09124, #e72109);
+  border-image-slice: 1;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
 }
 
 .mobile-contact-btn,
@@ -119,63 +127,114 @@ nav a:hover {
 .donate-btn,
 .partner-btn,
 .mobile-donate-btn {
-  background: var(--clr-primary);
+  background: #674515;
   color: #fff;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0%;
 }
 
 .donate-btn:hover,
 .partner-btn:hover,
 .mobile-donate-btn:hover {
-  background: #fff;
-  color: var(--clr-primary);
+  background: #e1bb43;
+  color: #1f2937;
   border: 1px solid var(--clr-primary);
 }
 
-/* Mobile menu button */
-.menu-toggle {
+/* Back to Top Button */
+#backToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 100;
+  background-color: #674515; /* WebCrunch primary color */
+  color: white;
+  border: none;
+  outline: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   display: none;
+  transition: all 0.3s ease;
+}
+
+#backToTop:hover {
+  background-color: #1f2937; /* secondary color */
+  transform: translateY(-3px);
+}
+
+/* ===========================
+   HAMBURGER ICON FIX
+   =========================== */
+
+/* The button itself */
+.menu-toggle {
+  display: none; /* hidden on desktop */
   background: none;
   border: none;
   cursor: pointer;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   height: 30px;
   width: 30px;
+  z-index: 1000;
 }
 
+/* The three horizontal bars */
 .menu-toggle span {
   display: block;
-  width: 24px;
-  height: 2px;
-  background: #333;
+  width: 25px;
+  height: 3px;
+  background: #0f387d; /* ✅ Use your brand color (visible on white) */
   margin: 4px 0;
   border-radius: 2px;
   transition: all 0.3s ease;
 }
 
-/* Animate to "X" */
+/* Animate to "X" when active */
 .menu-toggle.active span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
+
 .menu-toggle.active span:nth-child(2) {
   opacity: 0;
 }
+
 .menu-toggle.active span:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* Mobile Menu */
+/* Show hamburger icon on tablets and phones */
+@media (max-width: 992px) {
+  .menu-toggle {
+    display: flex;
+  }
+}
+
+/* ===========================
+   MOBILE MENU (CENTERED)
+   =========================== */
 .mobile-menu {
+  display: flex;
+  flex-direction: column; /* vertical stacking */
+  align-items: center; /* ✅ centers horizontally */
+  text-align: center; /* ✅ centers link text */
   overflow: hidden;
   max-height: 0;
   transition: max-height 0.4s ease, padding 0.3s ease;
-  flex-direction: column;
-  gap: 15px;
+  gap: 10px;
   padding: 0 20px;
-  background: white;
+  background: #fff;
   border-top: 1px solid #eee;
 }
 
+/* Menu links */
 .mobile-menu a {
   opacity: 0;
   transform: translateY(10px);
@@ -183,12 +242,20 @@ nav a:hover {
   font-weight: 500;
   color: #333;
   padding: 10px 0;
+  width: 100%;
+  display: block;
+  transition: color 0.3s ease;
 }
 
-/* Slide-down + staggered fade */
+/* Hover effect (optional aesthetic touch) */
+.mobile-menu a:hover {
+  color: #0f387d; /* your brand color */
+}
+
+/* Slide-down + staggered fade-in */
 .mobile-menu.active {
   max-height: 500px;
-  padding: 20px;
+  padding: 20px 0;
 }
 
 .mobile-menu.active a {
@@ -305,16 +372,29 @@ nav a:hover {
 /* Brief Overview Section */
 .overview-section {
   padding: 60px 1%;
+  text-align: center;
 }
 
 .overview-section h3 {
-  text-align: center;
+  position: relative;
+  display: inline-block;
   font-weight: 700;
   font-size: 36px;
-  margin-bottom: 7rem;
+  margin-bottom: 6rem;
   line-height: 100%;
   letter-spacing: 0%;
   color: var(--clr-body);
+}
+
+/* Decorative Icon at Top Right */
+.overview-heading-icon {
+  position: absolute;
+  top: 950px;
+  right: 120px;
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  z-index: 1;
 }
 
 .overview-container {
@@ -348,7 +428,6 @@ nav a:hover {
 .icon {
   font-size: 40px;
   margin-bottom: 15px;
-  background-color: var(--clr-primary);
   padding: 0 15px;
   border-top-left-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -435,7 +514,7 @@ nav a:hover {
 
 .contact-left h2 {
   font-size: 2rem;
-  color: var(--clr-primary);
+  color: #1f2937;
   font-weight: 600;
   line-height: 60px;
   letter-spacing: 0%;
@@ -448,13 +527,14 @@ nav a:hover {
   line-height: 100%;
   letter-spacing: 0%;
   margin-bottom: 30px;
-  color: #66666e;
+  color: #1f2937;
 }
 
 .contact-left p {
   font-weight: 400;
   margin-bottom: 15px;
   line-height: 1.6;
+  color: #1f2937;
 }
 
 .contact-right {
@@ -480,14 +560,14 @@ nav a:hover {
 .contact-form textarea {
   width: 100%;
   padding: 12px;
-  border: 2px solid #fbecdc;
+  border: 2px solid #e8e8e8;
   border-radius: 6px;
   font-size: 1rem;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-color: var(--clr-accent);
+  border-color: #e1bb43;
   outline: none;
 }
 
@@ -501,13 +581,13 @@ nav a:hover {
   font-size: 16px;
   line-height: 100%;
   letter-spacing: 0%;
-  color: #474747;
+  color: #1f2937;
 }
 
 .contact-form button {
   align-self: flex-start;
   padding: 20px 30px;
-  background: var(--clr-primary);
+  background: #674515;
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -516,8 +596,14 @@ nav a:hover {
 
 .contact-form button:hover {
   background: #fff;
-  color: var(--clr-primary);
+  color: #1f2937;
   border: 1px solid var(--clr-hdr-bottom);
+}
+
+/* Overlapping Donate Section */
+.donate-wrapper {
+  position: relative;
+  width: 100%;
 }
 
 /* Overlapping Donate Section */
@@ -528,7 +614,6 @@ nav a:hover {
   padding-top: 100px;
   margin-bottom: -12rem; /* overlaps footer */
   position: relative;
-  z-index: 2;
   border-radius: 12px;
   max-width: 1200px;
   margin-left: auto;
@@ -540,33 +625,32 @@ nav a:hover {
   font-size: 50px;
   line-height: 120%;
   font-weight: 700;
-  letter-spacing: 0%;
   margin-bottom: 1rem;
 }
 
 .donate-sec-btn {
-  background: var(--clr-accent);
-  color: #292929;
+  background: #f3f4f6;
+  color: #1f2937;
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   font-size: 1rem;
+  line-height: 100%;
 }
 
 .donate-sec-btn:hover {
-  background: var(--clr-primary);
+  background: #674515;
   color: #fff;
-  border: 1px solid var(--clr-accent);
 }
 
 /* Footer Styles */
 .site-footer {
-  background: #292929;
+  background: #f3f4f6;
   color: #ccc;
   padding: 18rem 2rem 2rem;
   position: relative;
-  z-index: 1;
+  z-index: -1;
 }
 
 .footer-content {
@@ -599,7 +683,7 @@ nav a:hover {
 }
 
 .footer-section h4 {
-  color: #fff;
+  color: #1f2937;
   margin-bottom: 2rem;
   font-size: 1.1rem;
 }
@@ -612,11 +696,11 @@ nav a:hover {
 
 .footer-section ul li {
   margin-bottom: 1.2rem;
-  color: #fff;
+  color: #1f2937;
 }
 
 .footer-section ul li a {
-  color: #fff;
+  color: #1f2937;
   font-weight: 400;
   font-size: 16px;
   line-height: 125%;
@@ -631,166 +715,111 @@ nav a:hover {
 
 /* Divider */
 .site-footer hr {
-  border: 1px solid #fff;
+  border: 1px solid #1f2937;
   margin: 2rem 0;
 }
 
 /* Copyright */
 .footer-copy {
   text-align: center;
+  font-weight: 400;
   font-size: 18px;
-  color: #fff;
+  color: #1f2937;
   line-height: 100%;
   letter-spacing: 0%;
-  font-weight: 300;
 }
 
-@media (max-width: 414px) {
-  .hero-decor,
-  .who-decor {
+/* ===========================
+   RESPONSIVE DESIGN FIXES
+   =========================== */
+@media (max-width: 992px) {
+  /* Header */
+  nav {
     display: none;
   }
 
-  .who-text h2 {
-    font-size: 30px;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-decor,
-  .who-decor {
+  .contact-btn,
+  .donate-btn {
     display: none;
-  }
-
-  .donate-overlap h2 {
-    font-size: 30px;
-  }
-
-  .org-structure {
-    height: 500px;
-  }
-}
-
-@media (max-width: 600px) {
-  .org-structure {
-    height: 300px; /* reduce height on small screens */
-  }
-
-  .org-structure h2 {
-    font-size: 1.5rem;
-  }
-
-  .org-structure p {
-    font-size: 1rem;
-    line-height: 1.4;
-  }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  nav,
-  .buttons {
-    display: none;
-  }
-
-  .circle {
-    width: 80px;
-    height: 80px;
-  }
-
-  .hero-content h1 {
-    font-size: 2rem;
-  }
-
-  .hero-content p {
-    font-size: 1rem;
   }
 
   .menu-toggle {
     display: flex;
   }
 
-  .mobile-menu {
-    display: flex;
-  }
-
-  .overview-container {
-    flex-direction: column;
-  }
-
-  .circle-left {
-    display: none;
-  }
-
-  .circle-right {
-    display: none;
-  }
-
-  .contact-container {
-    flex-direction: column;
-  }
-
-  .contact-right {
-    width: 100%;
-  }
-
-  .name-fields {
-    flex-direction: column;
-  }
-
-  .footer-content {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .footer-socials {
-    justify-content: center;
-  }
-}
-
-/* Responsive Styles */
-@media (max-width: 900px) {
+  /* Hero Section */
   .hero {
     flex-direction: column;
     text-align: center;
-    padding: 5rem 1.5rem;
+    padding-top: 7rem;
   }
 
   .hero-left {
-    padding-right: 0;
+    max-width: 100%;
   }
 
   .hero-left h1 {
-    font-size: 2.2rem;
+    font-size: 42px;
+    line-height: 1.3;
   }
 
   .hero-left p {
     margin: 0 auto 1.5rem;
   }
 
-  .hero-decor {
-    top: 52%;
-    right: 22%;
-  }
-
-  .who-decor {
-    top: -1%;
-    left: 18%;
-  }
-
   .buttons {
     justify-content: center;
   }
 
-  .hero-right {
-    margin-top: 2rem;
+  .hero-image {
+    max-width: 350px;
   }
+
+  .hero-decor {
+    display: none;
+  }
+
+  /* Overview Section */
+  .overview-section h3 {
+    font-size: 28px;
+    margin-bottom: 4rem;
+  }
+
+  .overview-heading-icon {
+    top: 69rem;
+    right: 55px;
+    width: 80px;
+    height: 80px;
+  }
+
+  .overview-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .overview-box {
+    width: 90%;
+  }
+
+  /* Who We Are */
+  .who-we-are {
+    flex-direction: column;
+    position: relative;
+    margin: 80px auto;
+  }
+
   .who-text {
     position: static;
     transform: none;
-    margin-bottom: 20px;
-    box-shadow: none;
-    text-align: center;
+    max-width: 90%;
+    margin-bottom: 2rem;
+  }
+
+  .who-decor {
+    width: 50px;
+    height: 50px;
+    top: 0%;
+    left: 3.4%;
   }
 
   .who-image {
@@ -798,6 +827,255 @@ nav a:hover {
   }
 
   .who-image img {
+    width: 90%;
+  }
+
+  /* Blog */
+  .blog h3 {
+    font-size: 30px;
+  }
+
+  .blog-card {
+    width: 90%;
+    height: 300px;
+  }
+
+  .blog h3::after {
+    transform: translate(40%, -110%);
+    width: 35px;
+    height: 35px;
+    left: 30%;
+  }
+
+  /* Contact */
+  .contact-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-left,
+  .contact-right {
     width: 100%;
+  }
+
+  .contact-left img {
+    max-width: 150px;
+  }
+
+  .contact-form .name-fields {
+    flex-direction: column;
+  }
+
+  .donate-overlap {
+    height: auto;
+    padding: 80px 40px;
+    margin-bottom: -10rem;
+  }
+
+  .donate-overlap h2 {
+    font-size: 40px;
+    line-height: 1.3;
+  }
+
+  .donate-sec-btn {
+    font-size: 0.95rem;
+    padding: 0.7rem 1.4rem;
+  }
+
+  .donate-wrapper::before,
+  .donate-wrapper::after {
+    width: 30px;
+    height: 30px;
+  }
+
+  .donate-wrapper::before {
+    top: calc(50% - 200px);
+    left: calc(50% - 500px);
+  }
+
+  .donate-wrapper::after {
+    bottom: calc(50% - 200px);
+    right: calc(50% - 500px);
+  }
+
+  /* Footer */
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .footer-section ul {
+    padding: 0;
+    list-style: none;
+  }
+  .footer-copy {
+    font-weight: 300;
+    font-size: 14px;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-left h1 {
+    font-size: 32px;
+  }
+
+  .hero-left small {
+    font-size: 16px;
+  }
+
+  .hero-decor {
+    display: none;
+  }
+
+  .hero-bg {
+    background: radial-gradient(
+      circle at 50% 50%,
+      rgba(65, 107, 255, 0.15),
+      transparent 70%
+    );
+  }
+
+  .overview-heading-icon {
+    top: 70rem;
+    right: 55px;
+    width: 80px;
+    height: 80px;
+  }
+
+  .donate-overlap {
+    padding: 60px 25px;
+    margin-bottom: -8rem;
+  }
+
+  .donate-overlap h2 {
+    font-size: 32px;
+    line-height: 1.3;
+  }
+
+  .donate-sec-btn {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .donate-wrapper::before,
+  .donate-wrapper::after {
+    width: 60px;
+    height: 60px;
+    opacity: 0.7;
+  }
+
+  .donate-wrapper::before {
+    top: -30px;
+    left: -30px;
+  }
+
+  .donate-wrapper::after {
+    bottom: -30px;
+    right: -30px;
+  }
+}
+
+/* Phones (max-width: 600px) */
+@media (max-width: 600px) {
+  .hero-left h1 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .hero-left small {
+    font-size: 16px;
+  }
+
+  .buttons a {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .overview-box h4 {
+    font-size: 20px;
+  }
+
+  .overview-box p {
+    font-size: 14px;
+  }
+
+  .who-text h2 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .who-text p {
+    font-size: 14px;
+  }
+
+  .blog-card {
+    height: 250px;
+  }
+
+  .contact-section h2 {
+    font-size: 28px;
+  }
+
+  .donate-overlap h2 {
+    font-size: 28px;
+    text-align: center;
+  }
+
+  .donate-sec-btn {
+    padding: 0.8rem 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-left::after {
+    display: none;
+  }
+
+  .overview-heading-icon {
+    top: 76rem;
+    right: 22px;
+    width: 60px;
+    height: 60px;
+  }
+
+  .donate-overlap {
+    padding: 50px 20px;
+    margin-bottom: -6rem;
+  }
+
+  .donate-overlap h2 {
+    font-size: 26px;
+    line-height: 1.2;
+  }
+
+  .donate-sec-btn {
+    font-size: 0.85rem;
+    padding: 0.55rem 1.1rem;
+  }
+
+  .donate-wrapper::before,
+  .donate-wrapper::after {
+    width: 50px;
+    height: 50px;
+    opacity: 0.6;
+  }
+
+  .donate-wrapper::before {
+    top: -25px;
+    left: -25px;
+  }
+
+  .donate-wrapper::after {
+    bottom: -25px;
+    right: -25px;
+  }
+}
+
+@media (max-width: 393px) {
+  .buttons {
+    display: flex;
+    flex-direction: column;
   }
 }
