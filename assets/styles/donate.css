@@ -613,6 +613,44 @@ nav a:hover {
   letter-spacing: 0%;
 }
 
+/* Smooth transition setup */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.4s ease;
+}
+
+/* Default (full) header style */
+header .container {
+  padding: 20px;
+  transition: padding 0.4s ease;
+}
+
+/* When scrolled — shrink effect */
+header.scrolled {
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.65);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Shrink the header’s padding */
+header.scrolled .container {
+  padding: 10px 20px;
+}
+
+/* Logo transition */
+.logo img {
+  height: 50px;
+  transition: all 0.4s ease;
+}
+
+/* Shrinked logo */
+.logo img.shrink {
+  height: 35px;
+}
+
 /* ===========================
    RESPONSIVE ADJUSTMENTS
    =========================== */

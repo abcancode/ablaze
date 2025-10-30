@@ -36,15 +36,21 @@ h6 {
   font-family: var(--ff-secondary);
 }
 
+/* Header and Hero Combined Background */
 header {
-  width: 100%;
-  background: white;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("/assets/images/hero-bg.jpg") center/cover no-repeat;
+  color: #fff;
+}
+
+/* Remove white header background */
+header {
+  background-blend-mode: overlay;
+  border: none;
   border-top: 3px solid var(--clr-primary);
-  border-bottom: 1px solid var(--clr-hdr-bottom);
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
 }
 
 .container {
@@ -242,7 +248,7 @@ nav a:hover {
   font-weight: 500;
   color: #333;
   padding: 10px 0;
-  width: 100%;
+  width: 90%;
   display: block;
   transition: color 0.3s ease;
 }
@@ -295,55 +301,61 @@ nav a:hover {
   }
 }
 
-/* Organizational Structure Section */
-.org-structure {
-  position: relative;
-  background: url("/assets/images/organization-image.jpg") no-repeat center
-    center/cover;
-  height: 700px;
+/* Hero Section */
+.hero {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  padding: 180px 20px 100px;
   text-align: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    url("/assets/images/who-image.png") center/cover no-repeat;
   color: #fff;
-  margin: 70px 0;
+  height: 100vh;
 }
 
-.org-structure .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.8); /* black transparent overlay */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
-
-.org-structure h2 {
-  font-size: 2rem;
-  margin-bottom: 15px;
-  font-weight: 600;
-  line-height: 80px;
-  letter-spacing: 0%;
-}
-
-.org-structure p {
+/* Hero Left Content */
+.hero-left {
   max-width: 700px;
-  font-size: 1.1rem;
-  line-height: 35px;
-  letter-spacing: 0%;
+}
+
+.hero-left small {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: #e1bb43;
+}
+
+.hero-left h1 {
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 20px;
+}
+
+.hero-left h1 span {
+  color: #e1bb43;
+}
+
+.hero-left p {
+  font-size: 17px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  color: #f1f1f1;
+}
+
+/* Buttons */
+.hero-left .buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
 }
 
 /* Blog Section */
 .blog {
-  position: relative;
-  z-index: 1;
   padding: 60px 20px;
-  text-align: center;
   margin-bottom: 100px;
 }
 
@@ -352,8 +364,6 @@ nav a:hover {
 }
 
 .blog h3 {
-  position: relative;
-  z-index: 2; /* keep text above the gradient circle */
   font-size: 36px;
   margin-bottom: 8px;
   color: var(--clr-body);
@@ -441,6 +451,49 @@ nav a:hover {
   background: #fff;
   color: #1f2937;
   border: 1px solid var(--clr-primary);
+}
+
+/* Organizational Structure Section */
+.org-structure {
+  position: relative;
+  background: url("/assets/images/blog-news-background.jpg") no-repeat center
+    center/cover;
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  margin: 70px 0;
+}
+
+.org-structure .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8); /* black transparent overlay */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.org-structure h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+  line-height: 80px;
+  letter-spacing: 0%;
+}
+
+.org-structure p {
+  max-width: 700px;
+  font-size: 1.1rem;
+  line-height: 35px;
+  letter-spacing: 0%;
 }
 
 /* Overlapping Donate Section */
@@ -572,17 +625,87 @@ nav a:hover {
   letter-spacing: 0%;
 }
 
-/* ===========================
-   RESPONSIVE DESIGN FIXES
-   =========================== */
+/* Sticky Header Scroll Effect */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: background 0.4s ease, backdrop-filter 0.4s ease,
+    box-shadow 0.3s ease;
+}
+
+/* When user scrolls */
+header.scrolled {
+  backdrop-filter: blur(10px); /* adds the glassy blur */
+  background: rgba(0, 0, 0, 0.55); /* subtle dark background */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+header nav a:hover {
+  color: var(--clr-primary);
+}
+
+header.scrolled {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(12px);
+}
+
+/* Smooth transition setup */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.4s ease;
+}
+
+/* Default (full) header style */
+header .container {
+  padding: 20px;
+  transition: padding 0.4s ease;
+}
+
+/* When scrolled — shrink effect */
+header.scrolled {
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.65);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Shrink the header’s padding */
+header.scrolled .container {
+  padding: 10px 20px;
+}
+
+/* Logo transition */
+.logo img {
+  height: 50px;
+  transition: all 0.4s ease;
+}
+
+/* Shrinked logo */
+.logo img.shrink {
+  height: 35px;
+}
+
+/* =========================================
+   📱 MOBILE RESPONSIVE STYLES
+   ========================================= */
+
+/* ---------- Tablets (≤992px) ---------- */
 @media (max-width: 992px) {
-  /* Header */
+  .container {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 15px;
+  }
+
   nav {
     display: none;
   }
 
-  .contact-btn,
-  .donate-btn {
+  .buttons {
     display: none;
   }
 
@@ -590,423 +713,240 @@ nav a:hover {
     display: flex;
   }
 
-  /* Hero Section */
   .hero {
-    flex-direction: column;
-    text-align: center;
-    padding-top: 7rem;
-  }
-
-  .hero-left {
-    max-width: 100%;
+    padding: 160px 20px 80px;
+    height: auto;
   }
 
   .hero-left h1 {
-    font-size: 42px;
-    line-height: 1.3;
+    font-size: 34px;
   }
 
   .hero-left p {
-    margin: 0 auto 1.5rem;
-  }
-
-  .buttons {
-    justify-content: center;
-  }
-
-  .hero-image {
-    max-width: 350px;
-  }
-
-  .hero-decor {
-    display: none;
-  }
-
-  /* Organizational Structure Section */
-  .org-structure {
-    position: relative;
-    background: url("/assets/images/organization-image.jpg") no-repeat center
-      center/cover;
-    height: 700px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #fff;
-    margin: 70px 0;
-  }
-
-  .org-structure .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.8); /* black transparent overlay */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-  }
-
-  .org-structure h2 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-    font-weight: 600;
-    line-height: 80px;
-    letter-spacing: 0%;
-  }
-
-  .org-structure p {
-    max-width: 700px;
-    font-size: 1.1rem;
-    line-height: 35px;
-    letter-spacing: 0%;
-  }
-
-  /* Blog Section */
-  .blog {
-    position: relative;
-    z-index: 1;
-    padding: 60px 20px;
-    text-align: center;
-    margin-bottom: 100px;
-  }
-
-  .blog .section-intro {
-    color: #e72109;
+    font-size: 16px;
   }
 
   .blog h3 {
-    position: relative;
-    z-index: 2; /* keep text above the gradient circle */
-    font-size: 36px;
-    margin-bottom: 8px;
-    color: var(--clr-body);
-    font-weight: 600;
-    line-height: 60px;
-    letter-spacing: 0%;
-  }
-
-  .blog-subheading {
-    color: var(--clr-text);
-    font-size: 16px;
-    line-height: 173%;
-    letter-spacing: 0%;
-    font-weight: 400;
-    margin-bottom: 40px;
+    font-size: 28px;
+    line-height: 40px;
   }
 
   .blog-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-
-  .blog-card {
-    position: relative;
-    width: 380px;
-    height: 350px;
-    background-size: cover;
-    background-position: center;
-    border-radius: 12px;
-    overflow: hidden;
-    text-decoration: none;
-    color: #fff;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .blog-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
-  }
-
-  .blog-content {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    padding: 20px;
-    background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.7));
-    width: 100%;
-    text-align: left;
-  }
-
-  .blog-date {
-    font-size: 12px;
-    opacity: 0.85;
-    font-weight: 500;
-    line-height: 100%;
-    letter-spacing: 0%;
-  }
-
-  .blog-title {
-    font-size: 22px;
-    font-weight: 700;
-    line-height: 25px;
-    letter-spacing: 0%;
-    margin: 8px 0;
-    font-weight: bold;
-  }
-
-  .blog-content p {
-    font-weight: 500;
-    letter-spacing: 0%;
-    font-size: 12px;
-    line-height: 20px;
-  }
-
-  .see-more-container {
-    margin-top: 30px;
-  }
-
-  .see-more-btn {
-    padding: 1rem 3rem;
-    background: #674515;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 15px;
-    transition: background 0.3s ease;
-  }
-
-  .see-more-btn:hover {
-    background: #fff;
-    color: #1f2937;
-    border: 1px solid var(--clr-primary);
-  }
-
-  /* Contact */
-  .contact-container {
     flex-direction: column;
     align-items: center;
   }
 
-  .contact-left,
-  .contact-right {
-    width: 100%;
+  .blog-card {
+    width: 90%;
+    height: 320px;
   }
 
-  .contact-left img {
-    max-width: 150px;
+  .org-structure {
+    height: 600px;
+    padding: 80px 20px;
   }
 
-  .contact-form .name-fields {
-    flex-direction: column;
+  .org-structure h2 {
+    font-size: 1.8rem;
+    line-height: 40px;
+  }
+
+  .org-structure p {
+    font-size: 1rem;
+    line-height: 28px;
   }
 
   .donate-overlap {
+    padding: 80px 20px;
     height: auto;
-    padding: 80px 40px;
     margin-bottom: -10rem;
   }
 
   .donate-overlap h2 {
-    font-size: 40px;
-    line-height: 1.3;
+    font-size: 36px;
   }
 
-  .donate-sec-btn {
-    font-size: 0.95rem;
-    padding: 0.7rem 1.4rem;
-  }
-
-  .donate-wrapper::before,
-  .donate-wrapper::after {
-    width: 30px;
-    height: 30px;
-  }
-
-  .donate-wrapper::before {
-    top: calc(50% - 200px);
-    left: calc(50% - 500px);
-  }
-
-  .donate-wrapper::after {
-    bottom: calc(50% - 200px);
-    right: calc(50% - 500px);
-  }
-
-  /* Footer */
-  .footer-content {
-    flex-direction: column;
-    text-align: center;
-    gap: 2rem;
-  }
-
-  .footer-section ul {
-    padding: 0;
-    list-style: none;
-  }
-  .footer-copy {
-    font-weight: 300;
-    font-size: 14px;
+  .site-footer {
+    padding-top: 14rem;
   }
 }
 
-/* Responsive adjustments */
+/* ---------- Small Tablets & Large Phones (≤768px) ---------- */
 @media (max-width: 768px) {
+  header .container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .logo img {
+    height: 45px;
+  }
+
+  .hero {
+    flex-direction: column;
+    padding: 140px 20px 60px;
+    text-align: center;
+  }
+
   .hero-left h1 {
-    font-size: 32px;
+    font-size: 28px;
   }
 
-  .hero-left small {
-    font-size: 16px;
+  .hero-left p {
+    font-size: 15px;
+    line-height: 1.5;
   }
 
-  .hero-decor {
-    display: none;
+  .hero-left .buttons {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .hero-bg {
-    background: radial-gradient(
-      circle at 50% 50%,
-      rgba(65, 107, 255, 0.15),
-      transparent 70%
-    );
-  }
-
-  .overview-heading-icon {
-    top: 70rem;
-    right: 55px;
-    width: 80px;
-    height: 80px;
-  }
-
-  .donate-overlap {
-    padding: 60px 25px;
-    margin-bottom: -8rem;
-  }
-
-  .donate-overlap h2 {
-    font-size: 32px;
-    line-height: 1.3;
-  }
-
-  .donate-sec-btn {
-    font-size: 0.9rem;
-    padding: 0.6rem 1.2rem;
-  }
-
-  .donate-wrapper::before,
-  .donate-wrapper::after {
-    width: 60px;
-    height: 60px;
-    opacity: 0.7;
-  }
-
-  .donate-wrapper::before {
-    top: -30px;
-    left: -30px;
-  }
-
-  .donate-wrapper::after {
-    bottom: -30px;
-    right: -30px;
-  }
-}
-
-/* Phones (max-width: 600px) */
-@media (max-width: 600px) {
-  .hero-left h1 {
-    font-size: 32px;
-    line-height: 40px;
-  }
-
-  .hero-left small {
-    font-size: 16px;
-  }
-
-  .buttons a {
-    padding: 10px 20px;
-    font-size: 14px;
-  }
-
-  .overview-box h4 {
-    font-size: 20px;
-  }
-
-  .overview-box p {
-    font-size: 14px;
-  }
-
-  .who-text h2 {
-    font-size: 32px;
-    line-height: 40px;
-  }
-
-  .who-text p {
-    font-size: 14px;
+  .blog h3 {
+    font-size: 26px;
   }
 
   .blog-card {
-    height: 250px;
+    width: 100%;
+    height: 300px;
   }
 
-  .contact-section h2 {
-    font-size: 28px;
+  .org-structure h2 {
+    font-size: 1.6rem;
+  }
+
+  .org-structure p {
+    font-size: 0.95rem;
+    line-height: 26px;
   }
 
   .donate-overlap h2 {
-    font-size: 28px;
-    text-align: center;
+    font-size: 30px;
   }
 
   .donate-sec-btn {
-    padding: 0.8rem 2rem;
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-section h4 {
+    margin-bottom: 1rem;
+  }
+
+  .footer-section ul li {
+    margin-bottom: 0.8rem;
+  }
+
+  .footer-logo {
+    margin: 0 auto 1.5rem;
+  }
+
+  .footer-copy {
+    font-size: 16px;
   }
 }
 
+/* ---------- Phones (≤480px) ---------- */
 @media (max-width: 480px) {
-  .hero-left::after {
-    display: none;
+  .container {
+    padding: 10px;
   }
 
-  .overview-heading-icon {
-    top: 76rem;
-    right: 22px;
-    width: 60px;
-    height: 60px;
+  .logo img {
+    height: 40px;
+  }
+
+  .hero {
+    padding: 120px 15px 50px;
+  }
+
+  .hero-left small {
+    font-size: 14px;
+  }
+
+  .hero-left h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  .hero-left p {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .hero-left .buttons a {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 14px;
+  }
+
+  .blog {
+    padding: 40px 10px;
+    margin-bottom: 60px;
+  }
+
+  .blog h3 {
+    font-size: 22px;
+    line-height: 30px;
+  }
+
+  .blog-card {
+    width: 100%;
+    height: 260px;
+  }
+
+  .org-structure {
+    margin: 50px 0;
+    padding: 60px 15px;
+  }
+
+  .org-structure h2 {
+    font-size: 1.4rem;
+    line-height: 32px;
+  }
+
+  .org-structure p {
+    font-size: 0.9rem;
+    line-height: 24px;
   }
 
   .donate-overlap {
-    padding: 50px 20px;
-    margin-bottom: -6rem;
+    padding: 60px 15px;
+    border-radius: 10px;
   }
 
   .donate-overlap h2 {
-    font-size: 26px;
-    line-height: 1.2;
+    font-size: 24px;
+    margin-bottom: 1rem;
   }
 
   .donate-sec-btn {
     font-size: 0.85rem;
-    padding: 0.55rem 1.1rem;
+    padding: 0.6rem 1rem;
   }
 
-  .donate-wrapper::before,
-  .donate-wrapper::after {
-    width: 50px;
-    height: 50px;
-    opacity: 0.6;
+  .site-footer {
+    padding-top: 12rem;
   }
 
-  .donate-wrapper::before {
-    top: -25px;
-    left: -25px;
+  .footer-content {
+    gap: 1.5rem;
   }
 
-  .donate-wrapper::after {
-    bottom: -25px;
-    right: -25px;
+  .footer-section ul li a {
+    font-size: 15px;
   }
-}
 
-@media (max-width: 393px) {
-  .buttons {
-    display: flex;
-    flex-direction: column;
+  #backToTop {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    bottom: 20px;
+    right: 20px;
   }
 }
