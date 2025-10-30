@@ -1502,11 +1502,6 @@ hr {
   .footer-copy {
     font-size: 16px;
   }
-
-  /* Hide double border effect */
-  header {
-    border-bottom: 1px solid var(--clr-hdr-bottom);
-  }
 }
 
 /* 🔸 Small Mobile (max-width: 576px) */
