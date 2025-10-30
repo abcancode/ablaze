@@ -242,7 +242,7 @@ nav a:hover {
   font-weight: 500;
   color: #333;
   padding: 10px 0;
-  width: 100%;
+  width: 90%;
   display: block;
   transition: color 0.3s ease;
 }
@@ -1373,4 +1373,86 @@ nav a:hover {
     display: flex;
     flex-direction: column;
   }
+}
+
+/* Preloader background */
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fffaf0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+/* Bible base */
+.bible {
+  position: relative;
+  width: 120px;
+  height: 80px;
+  perspective: 800px;
+}
+
+/* Bible covers */
+.bible .cover {
+  position: absolute;
+  width: 60px;
+  height: 80px;
+  background: #e1bb43;
+  border-radius: 4px;
+  transform-origin: center right;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Left cover stays static */
+.bible .cover.left {
+  left: 0;
+}
+
+/* Right cover animates open */
+.bible .cover.right {
+  right: 0;
+  animation: openBible 2s forwards ease-in-out;
+}
+
+/* Pages inside */
+.bible .pages {
+  position: absolute;
+  left: 60px;
+  width: 0;
+  height: 80px;
+  background: #f8f8f8;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  animation: showPages 2s forwards ease-in-out;
+}
+
+/* Keyframes */
+@keyframes openBible {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(-160deg);
+  }
+}
+
+@keyframes showPages {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 10px;
+  }
+}
+
+/* Hide preloader after animation */
+body.loaded #preloader {
+  opacity: 0;
+  visibility: hidden;
 }

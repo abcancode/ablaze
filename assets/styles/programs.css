@@ -242,7 +242,7 @@ nav a:hover {
   font-weight: 500;
   color: #333;
   padding: 10px 0;
-  width: 100%;
+  width: 90%;
   display: block;
   transition: color 0.3s ease;
 }
@@ -1474,6 +1474,10 @@ hr {
   .how-it-works-container p {
     font-size: 18px;
     line-height: 32px;
+  }
+
+  .faq-tab {
+    font-size: 0.85rem;
   }
 
   .donate-overlap h2 {

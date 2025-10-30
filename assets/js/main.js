@@ -27,6 +27,12 @@ backToTopBtn.addEventListener("click", function () {
   });
 });
 
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.body.classList.add("loaded");
+  }, 2500); // matches animation duration
+});
+
 const slides = document.querySelectorAll(".video-slide");
 const prevBtn = document.querySelector(".prev");
 const nextBtn = document.querySelector(".next");
