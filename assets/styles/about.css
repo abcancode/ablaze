@@ -1003,6 +1003,7 @@ nav a:hover {
   .hero-content span {
     font-size: 28px;
     line-height: 34px;
+    margin-bottom: 20px;
   }
 
   .hero-content p {
@@ -1012,16 +1013,16 @@ nav a:hover {
 
   .circle-left,
   .circle-right {
-    width: 140px;
-    height: 140px;
+    display: none;
   }
 
   .circle img {
-    width: 60%;
+    width: inherit;
+    height: inherit;
   }
 
   .about-hero {
-    padding: 4rem 1rem;
+    padding: 7rem 1rem;
   }
 
   .overview-heading-icon {
