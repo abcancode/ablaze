@@ -1286,51 +1286,40 @@ hr {
   letter-spacing: 0%;
 }
 
-/* ===============================
-   ✅ MOBILE RESPONSIVE STYLES
-   =============================== */
+/* ================================================
+   RESPONSIVE OPTIMIZATION — Mobile & Tablets
+================================================ */
 
-/* Tablets and small laptops (max-width: 992px) */
+/* 🔸 Tablets (max-width: 992px) */
 @media (max-width: 992px) {
   .container {
-    flex-direction: row;
-    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: space-between;
     padding: 15px;
   }
 
   nav {
-    display: none; /* hide desktop nav */
+    display: none; /* hidden on mobile, replaced by .mobile-menu */
+  }
+
+  .buttons {
+    display: none; /* hide desktop buttons */
   }
 
   .hero {
     flex-direction: column;
-    padding: 8rem 5% 3rem 5%;
     text-align: center;
-  }
-
-  .hero-left {
-    max-width: 100%;
+    padding: 8rem 5% 4rem;
   }
 
   .hero-left h1 {
     font-size: 48px;
+    line-height: 1.2;
   }
 
   .hero-left p {
-    max-width: 100%;
-  }
-
-  .hero-right {
-    margin-top: 2rem;
-  }
-
-  .hero-decor {
-    display: none;
-  }
-
-  .donate-btn,
-  .contact-btn {
-    display: none;
+    font-size: 16px;
+    margin: 0 auto 2rem;
   }
 
   .buttons {
@@ -1339,28 +1328,50 @@ hr {
 
   .community-btn,
   .partner-btn {
-    text-align: center;
+    width: 100%;
+    max-width: 260px;
   }
 
+  .hero-right {
+    margin-top: 2rem;
+  }
+
+  .hero-image {
+    max-width: 380px;
+  }
+
+  .hero-decor {
+    display: none;
+  }
+
+  /* Stack eligible and adopt sections vertically */
   .eligible,
   .adopt {
     flex-direction: column;
-    margin: 80px auto;
+    gap: 2rem;
+    margin: 100px auto;
   }
 
   .eligible-text,
   .adopt-text {
     position: relative;
-    max-width: 100%;
-    right: 0;
+    top: 0;
     left: 0;
+    right: 0;
     transform: none;
-    margin: 20px 0;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .eligible-image,
+  .adopt-image {
+    justify-content: center;
   }
 
   .eligible-image img,
   .adopt-image img {
     width: 100%;
+    max-width: 500px;
   }
 
   .how-to-apply-container {
@@ -1375,8 +1386,9 @@ hr {
   }
 
   .sponsor-container,
-  .how-it-works-container {
-    padding: 25px 3rem;
+  .how-it-works-container,
+  .testimonial-container {
+    padding: 25px 2rem;
   }
 
   .video-slider {
@@ -1385,52 +1397,61 @@ hr {
   }
 
   .faq-section h2 {
-    font-size: 34px;
+    font-size: 32px;
   }
 
-  .faq-tab {
-    font-size: 15px;
-    padding: 8px 18px;
+  .donate-overlap {
+    padding: 80px 1rem;
+    height: auto;
+    margin-bottom: -8rem;
+  }
+
+  .site-footer {
+    padding-top: 14rem;
+  }
+
+  .footer-content {
+    justify-content: center;
   }
 }
 
-/* Medium mobiles (max-width: 768px) */
+/* Large Mobile (max-width: 768px) */
 @media (max-width: 768px) {
   header {
     padding: 10px 0;
   }
 
-  .logo img {
-    height: 40px;
-  }
-
-  .hero-left small {
-    font-size: 16px;
+  .hero {
+    height: 100vh;
+    border: none;
+    background-color: #fff;
   }
 
   .hero-left h1 {
     font-size: 40px;
-    line-height: 1.2;
   }
 
   .hero-left p {
     font-size: 15px;
   }
 
-  .mobile-menu {
-    border-bottom: none;
-  }
-
   .buttons {
     flex-direction: column;
-    gap: 0.8rem;
     align-items: center;
+    gap: 15px;
+  }
+
+  .community-btn,
+  .partner-btn {
+    width: 80%;
+    max-width: 250px;
+    text-align: center;
   }
 
   .eligible-text h2,
   .adopt-text h2 {
-    font-size: 36px;
-    line-height: 44px;
+    font-size: 38px;
+    line-height: 48px;
   }
 
   .eligible-text p,
@@ -1440,114 +1461,160 @@ hr {
 
   .how-to-apply-section h3 {
     font-size: 28px;
+    margin-bottom: 3rem;
+  }
+
+  .submit-app-btn,
+  .adopt-btn {
+    width: 80%;
+    max-width: 250px;
+  }
+
+  .sponsor-container p,
+  .how-it-works-container p {
+    font-size: 18px;
+    line-height: 32px;
+  }
+
+  .donate-overlap h2 {
+    font-size: 36px;
+    line-height: 48px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-section {
+    min-width: 100%;
+  }
+
+  .footer-logo {
+    margin: 0 auto 2rem;
+  }
+
+  .footer-socials a {
+    font-size: 1.5rem;
+  }
+
+  .footer-copy {
+    font-size: 16px;
+  }
+
+  /* Hide double border effect */
+  header {
+    border-bottom: 1px solid var(--clr-hdr-bottom);
+  }
+}
+
+/* 🔸 Small Mobile (max-width: 576px) */
+@media (max-width: 576px) {
+  .logo img {
+    height: 40px;
+  }
+
+  .hero {
+    padding-top: 7rem;
+  }
+
+  .hero-left h1 {
+    font-size: 32px;
+  }
+
+  .hero-left small {
+    font-size: 16px;
+  }
+
+  .hero-left p {
+    font-size: 14px;
+  }
+
+  .community-btn,
+  .partner-btn {
+    font-size: 14px;
+    padding: 0.8rem 1.4rem;
+  }
+
+  .eligible-text,
+  .adopt-text {
+    padding: 20px;
+  }
+
+  .eligible-text h2,
+  .adopt-text h2 {
+    font-size: 30px;
+    line-height: 40px;
   }
 
   .how-to-apply-box h4 {
     font-size: 20px;
   }
 
+  .how-to-apply-box p {
+    font-size: 14px;
+  }
+
   .sponsor h3,
   .how-it-works h4 {
-    font-size: 28px;
-    line-height: 38px;
-  }
-
-  .sponsor-container p,
-  .how-it-works-container p {
-    font-size: 16px;
-    line-height: 30px;
-  }
-
-  .faq-section {
-    margin: 60px auto;
+    font-size: 26px;
   }
 
   .faq-question {
     font-size: 16px;
   }
 
-  .slider-controls button {
-    font-size: 18px;
-    padding: 10px 12px;
-  }
-
-  .donate-overlap h2 {
-    font-size: 30px;
-  }
-}
-
-/* Small mobiles (max-width: 480px) */
-@media (max-width: 480px) {
-  .hero-left h1 {
-    font-size: 32px;
-  }
-
-  .hero-left p {
-    font-size: 14px;
-    margin-bottom: 1.5rem;
-  }
-
-  .contact-btn,
-  .donate-btn,
-  .partner-btn {
-    font-size: 14px;
-    padding: 0.8rem 1.5rem;
-  }
-
-  .eligible-text,
-  .adopt-text {
-    padding: 20px;
-    text-align: center;
-  }
-
-  .eligible-text h2,
-  .adopt-text h2 {
-    font-size: 28px;
-    line-height: 36px;
-  }
-
-  .how-to-apply-box {
-    padding: 25px 15px;
-  }
-
-  .sponsor-container,
-  .how-it-works-container {
-    padding: 25px 1rem;
-  }
-
   .video-slider {
     width: 100%;
   }
 
-  .faq-tab {
-    padding: 6px 10px;
-    font-size: 14px;
+  .donate-overlap {
+    padding: 60px 1rem;
+    border-radius: 10px;
   }
 
-  #backToTop {
-    width: 40px;
-    height: 40px;
-    bottom: 20px;
-    right: 20px;
+  .donate-overlap h2 {
+    font-size: 28px;
+  }
+
+  .donate-sec-btn {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .footer-copy {
+    font-size: 14px;
   }
 }
 
-/* Extra-small (max-width: 360px) */
-@media (max-width: 360px) {
+/* Extra Small Devices (max-width: 400px) */
+@media (max-width: 400px) {
   .hero-left h1 {
-    font-size: 28px;
+    font-size: 26px;
   }
 
   .hero-left p {
     font-size: 13px;
   }
 
-  .eligible-text h2,
-  .adopt-text h2 {
+  .community-btn,
+  .partner-btn {
+    font-size: 13px;
+    padding: 0.7rem 1.2rem;
+  }
+
+  .submit-app-btn,
+  .adopt-btn {
+    font-size: 14px;
+    padding: 0.9rem 2rem;
+  }
+
+  .donate-overlap h2 {
     font-size: 24px;
   }
 
-  .how-to-apply-box h4 {
-    font-size: 18px;
+  .footer-copy {
+    font-size: 13px;
   }
 }
