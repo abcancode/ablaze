@@ -1329,291 +1329,230 @@ header.scrolled .container {
   height: 35px;
 }
 
-/* ================================================
-   RESPONSIVE OPTIMIZATION — Mobile & Tablets
-================================================ */
-
-/* 🔸 Tablets (max-width: 992px) */
+/* =========================
+   MOBILE RESPONSIVE (≤992px)
+   ========================= */
 @media (max-width: 992px) {
-  .container {
-    flex-wrap: wrap;
+  /* ===== HEADER ===== */
+  header .container {
+    flex-direction: row;
     justify-content: space-between;
-    padding: 15px;
+    padding: 10px 15px;
+  }
+
+  .logo img {
+    height: 35px;
   }
 
   nav {
-    display: none; /* hidden on mobile, replaced by .mobile-menu */
+    display: none; /* hide desktop nav on mobile */
   }
 
-  .buttons {
-    display: none; /* hide desktop buttons */
+  .menu-toggle {
+    display: flex;
   }
 
+  .buttons a {
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+
+  .contact-btn,
+  .donate-btn {
+    display: none;
+  }
+
+  /* ===== HERO ===== */
   .hero {
     flex-direction: column;
+    align-items: center;
+    padding: 5rem 3% 2rem 3%;
     text-align: center;
-    padding: 8rem 5% 4rem;
+  }
+
+  .hero-left {
+    max-width: 100%;
+    margin-bottom: 2rem;
   }
 
   .hero-left h1 {
-    font-size: 48px;
-    line-height: 1.2;
+    font-size: 28px;
+    line-height: 36px;
   }
 
   .hero-left p {
-    font-size: 16px;
-    margin: 0 auto 2rem;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .hero-right {
+    max-width: 100%;
+  }
+
+  .hero-image {
+    width: 85%;
+    max-width: 280px;
   }
 
   .buttons {
     justify-content: center;
   }
 
-  .community-btn,
-  .partner-btn {
-    width: 100%;
-    max-width: 260px;
-  }
-
-  .hero-right {
-    margin-top: 2rem;
-  }
-
-  .hero-image {
-    max-width: 380px;
-  }
-
+  /* Hero decorative icons */
   .hero-decor {
     display: none;
   }
 
-  /* Stack eligible and adopt sections vertically */
-  .eligible,
-  .adopt {
-    flex-direction: column;
-    gap: 2rem;
-    margin: 100px auto;
+  /* ===== ELIGIBLE SECTION ===== */
+  .eligible {
+    flex-direction: column-reverse;
+    margin: 120px auto;
+    padding: 0 5%;
   }
 
-  .eligible-text,
-  .adopt-text {
+  .eligible-text {
     position: relative;
-    top: 0;
-    left: 0;
-    right: 0;
+    top: auto;
+    right: auto;
     transform: none;
-    max-width: 100%;
+    margin: 20px auto;
+    max-width: 90%;
     text-align: center;
-  }
-
-  .eligible-image,
-  .adopt-image {
-    justify-content: center;
-  }
-
-  .eligible-image img,
-  .adopt-image img {
-    width: 100%;
-    max-width: 500px;
-  }
-
-  .how-to-apply-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .how-to-apply-box {
-    width: 90%;
-    text-align: center;
-    align-items: center;
-  }
-
-  .sponsor-container,
-  .how-it-works-container,
-  .testimonial-container {
-    padding: 25px 2rem;
-  }
-
-  .video-slider {
-    width: 90%;
-    height: auto;
-  }
-
-  .faq-section h2 {
-    font-size: 32px;
-  }
-
-  .donate-overlap {
-    padding: 80px 1rem;
-    height: auto;
-    margin-bottom: -8rem;
-  }
-
-  .site-footer {
-    padding-top: 14rem;
-  }
-
-  .footer-content {
-    justify-content: center;
-  }
-}
-
-/* Large Mobile (max-width: 768px) */
-@media (max-width: 768px) {
-  header {
-    padding: 10px 0;
-  }
-
-  .hero {
-    height: 100vh;
-    border: none;
-    background-color: #fff;
-  }
-
-  .hero-left h1 {
-    font-size: 40px;
-  }
-
-  .hero-left p {
-    font-size: 15px;
-  }
-
-  .buttons {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-  }
-
-  .community-btn,
-  .partner-btn {
-    width: 80%;
-    max-width: 250px;
-    text-align: center;
-  }
-
-  .eligible-text h2,
-  .adopt-text h2 {
-    font-size: 38px;
-    line-height: 48px;
-  }
-
-  .eligible-text p,
-  .adopt-text p {
-    font-size: 15px;
-  }
-
-  .how-to-apply-section h3 {
-    font-size: 28px;
-    margin-bottom: 3rem;
-  }
-
-  .submit-app-btn,
-  .adopt-btn {
-    width: 80%;
-    max-width: 250px;
-  }
-
-  .sponsor-container p,
-  .how-it-works-container p {
-    font-size: 18px;
-    line-height: 32px;
-  }
-
-  .faq-tab {
-    font-size: 0.85rem;
-  }
-
-  .donate-overlap h2 {
-    font-size: 36px;
-    line-height: 48px;
-  }
-
-  .footer-content {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .footer-section {
-    min-width: 100%;
-  }
-
-  .footer-logo {
-    margin: 0 auto 2rem;
-  }
-
-  .footer-socials a {
-    font-size: 1.5rem;
-  }
-
-  .footer-copy {
-    font-size: 16px;
-  }
-}
-
-/* 🔸 Small Mobile (max-width: 576px) */
-@media (max-width: 576px) {
-  .logo img {
-    height: 40px;
-  }
-
-  .hero {
-    padding-top: 7rem;
-  }
-
-  .hero-left h1 {
-    font-size: 32px;
-  }
-
-  .hero-left small {
-    font-size: 16px;
-  }
-
-  .hero-left p {
-    font-size: 14px;
-  }
-
-  .community-btn,
-  .partner-btn {
-    font-size: 14px;
-    padding: 0.8rem 1.4rem;
-  }
-
-  .eligible-text,
-  .adopt-text {
+    border-radius: 20px;
     padding: 20px;
   }
 
-  .eligible-text h2,
-  .adopt-text h2 {
-    font-size: 30px;
+  .eligible-text h2 {
+    font-size: 32px;
     line-height: 40px;
   }
 
+  .eligible-image img {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  /* ===== HOW TO APPLY ===== */
+  .how-to-apply-container {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 5%;
+  }
+
+  .how-to-apply-box {
+    width: 100%;
+  }
+
   .how-to-apply-box h4 {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .how-to-apply-box p {
     font-size: 14px;
   }
 
+  .submit-app-btn {
+    width: 100%;
+    max-width: 300px;
+    margin: 2rem auto 0;
+  }
+
+  /* ===== ADOPT SECTION ===== */
+  .adopt {
+    flex-direction: column-reverse;
+    margin: 120px auto;
+    padding: 0 5%;
+  }
+
+  .adopt-text {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 20px auto;
+    max-width: 90%;
+    text-align: center;
+    border-radius: 20px;
+    padding: 20px;
+  }
+
+  .adopt-text h2 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .adopt-image img {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  /* ===== SPONSOR & HOW-IT-WORKS ===== */
+  .sponsor-container,
+  .how-it-works-container,
+  .testimonial-container {
+    padding: 25px 5%;
+  }
+
   .sponsor h3,
-  .how-it-works h4 {
-    font-size: 26px;
+  .how-it-works h4,
+  .testimonial h3 {
+    font-size: 22px;
   }
 
-  .faq-question {
-    font-size: 16px;
+  .sponsor-container p,
+  .how-it-works-container p {
+    font-size: 15px;
+    line-height: 1.4;
   }
 
+  /* ===== VIDEO SLIDER ===== */
   .video-slider {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .video-slide video {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* ===== FAQ ===== */
+  .faq-section h2 {
+    font-size: 24px;
+  }
+
+  .faq-category-wrapper {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  /* ===== CONTACT ===== */
+  .contact-container {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 5%;
+  }
+
+  .contact-left,
+  .contact-right {
     width: 100%;
   }
 
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 14px;
+  }
+
+  .contact-form button {
+    width: 100%;
+    font-size: 14px;
+    padding: 12px 0;
+  }
+
+  /* ===== DONATE ===== */
   .donate-overlap {
-    padding: 60px 1rem;
-    border-radius: 10px;
+    padding: 3rem 1rem;
+    margin-bottom: -3rem;
   }
 
   .donate-overlap h2 {
@@ -1621,42 +1560,31 @@ header.scrolled .container {
   }
 
   .donate-sec-btn {
-    font-size: 0.9rem;
-    padding: 0.6rem 1.2rem;
+    width: 100%;
+    max-width: 200px;
+    padding: 0.5rem 1rem;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .footer-section {
+    min-width: 90%;
+    text-align: center;
   }
 
   .footer-copy {
-    font-size: 14px;
+    font-size: 13px;
   }
 }
 
-/* Extra Small Devices (max-width: 400px) */
-@media (max-width: 400px) {
-  .hero-left h1 {
-    font-size: 26px;
-  }
-
-  .hero-left p {
-    font-size: 13px;
-  }
-
-  .community-btn,
-  .partner-btn {
-    font-size: 13px;
-    padding: 0.7rem 1.2rem;
-  }
-
-  .submit-app-btn,
-  .adopt-btn {
-    font-size: 14px;
-    padding: 0.9rem 2rem;
-  }
-
-  .donate-overlap h2 {
-    font-size: 24px;
-  }
-
-  .footer-copy {
-    font-size: 13px;
+@media (max-width: 393px) {
+  .buttons {
+    display: flex;
+    flex-direction: column;
   }
 }
