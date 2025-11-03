@@ -113,8 +113,12 @@
           about the Word of God? Join us!
         </p>
         <div class="buttons">
-          <a href="#" class="community-btn">Join Community</a>
-          <a href="#" class="partner-btn">Partner with Us</a>
+          <a
+            href="https://chat.whatsapp.com/Gbnxxr7WWXoAEqjcl8Kn9D"
+            class="community-btn"
+            >Join Community</a
+          >
+          <a href="partnership.html" class="partner-btn">Partner with Us</a>
         </div>
       </div>
 
@@ -204,7 +208,7 @@
           younger generation. The Foundation with registered office in Lagos,
           has a membership base spread across Continents.
         </p>
-        <button class="see-more-btn">See More</button>
+        <a href="about.html"><button class="see-more-btn">See More</button></a>
       </div>
 
       <div class="who-image">
@@ -257,7 +261,7 @@
       </div>
 
       <div class="see-more-container">
-        <button class="see-more-btn">See More</button>
+        <a href="blog.html"><button class="see-more-btn">See More</button></a>
       </div>
     </section>
 
@@ -300,7 +304,9 @@
           Do you share in our Mission? <br />
           Donate Today!
         </h2>
-        <button class="donate-sec-btn">Donate Now</button>
+        <a href="donate.html"
+          ><button class="donate-sec-btn">Donate Now</button></a
+        >
       </section>
     </div>
 
@@ -368,6 +374,29 @@
           header.classList.remove("scrolled");
           logo.classList.remove("shrink");
         }
+      });
+    </script>
+    <script>
+      const reveals = document.querySelectorAll(
+        ".reveal, .reveal-left, .reveal-right, .reveal-fade"
+      );
+
+      const appearOnScroll = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active");
+              observer.unobserve(entry.target); // animate only once
+            }
+          });
+        },
+        {
+          threshold: 0.2,
+        }
+      );
+
+      reveals.forEach((section) => {
+        appearOnScroll.observe(section);
       });
     </script>
   </body>

@@ -99,7 +99,7 @@ nav a:hover {
 }
 
 .contact-btn,
-.community-btn,
+.apply-btn,
 .mobile-contact-btn {
   background: #fff;
   color: #1f2937;
@@ -118,7 +118,7 @@ nav a:hover {
 }
 
 .contact-btn:hover,
-.community-btn:hover,
+.apply-btn:hover,
 .mobile-contact-btn:hover {
   background: var(--clr-primary);
   color: #fff;
@@ -391,7 +391,7 @@ nav a:hover {
   gap: 1rem;
 }
 
-.community-btn,
+.apply-btn,
 .partner-btn {
   padding: 0.9rem 1.8rem;
   border-radius: 8px;
@@ -399,13 +399,13 @@ nav a:hover {
   transition: all 0.3s ease;
 }
 
-.community-btn {
+.apply-btn {
   background: var(--clr-primary);
   color: #fff;
   box-shadow: 0 8px 20px rgba(65, 107, 255, 0.3);
 }
 
-.community-btn:hover {
+.apply-btn:hover {
   background: #674515;
   transform: translateY(-2px);
 }
@@ -677,7 +677,7 @@ nav a:hover {
 }
 
 /* Center the Submit Application button */
-.how-to-apply-container .submit-app-btn {
+.how-to-apply-container a {
   display: block;
   margin: 2rem auto 0; /* top margin 2rem, auto left/right, 0 bottom */
 }
@@ -954,7 +954,7 @@ hr {
   font-weight: 700;
 }
 
-/* Category Wrapper */
+/* Category Wrapper
 .faq-category-wrapper {
   display: flex;
   justify-content: center;
@@ -969,7 +969,7 @@ hr {
   overflow: hidden;
 }
 
-/* Category Tabs */
+/* Category Tabs 
 .faq-tab {
   background: transparent;
   border: none;
@@ -990,6 +990,7 @@ hr {
   background: #e1bb43;
   color: #fff;
 }
+*/
 
 /* FAQ Container */
 .faq-container {

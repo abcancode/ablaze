@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Setting the world on fire inspired by the Holy Spirit"
+    />
+    <meta
+      property="og:title"
+      content="Ablaze Impact Foundation - Setting the world on fire inspired by the Holy Spirit"
+    />
+    <meta
+      property="og:description"
+      content="Ablaze Impact Foundation is a Christian community guided by the Holy Spirit and founded on the Word of God."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ablazeimpactfoundation.com" />
+    <title>Apply | Ablaze Impact Foundation</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
+    <link rel="stylesheet" href="/assets/styles/apply-form.css" />
+    <!-- <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./assets/images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./assets/images/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" /> -->
+    <script
+      src="https://kit.fontawesome.com/363959494a.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- Preloader -->
+    <div id="preloader">
+      <div class="bible">
+        <div class="cover left"></div>
+        <div class="pages"></div>
+        <div class="cover right"></div>
+      </div>
+    </div>
+
+    <header>
+      <div class="container">
+        <!-- Logo -->
+        <div class="logo">
+          <img src="/assets/images/ablaze-logo.png" alt="Logo" />
+        </div>
+
+        <!-- Nav (Desktop) -->
+        <nav>
+          <a href="/">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="programs.html">Programs</a>
+          <a href="partnership.html">Partnership</a>
+          <a href="blog.html">Blog</a>
+        </nav>
+
+        <!-- Buttons (Desktop) -->
+        <div class="buttons">
+          <a href="contact.html" class="contact-btn">Contact</a>
+          <a href="donate.html" class="donate-btn">Donate</a>
+        </div>
+
+        <!-- Hamburger (Mobile) -->
+        <button class="menu-toggle" id="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div class="mobile-menu" id="mobile-menu">
+        <a href="/">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="programs.html">Programs</a>
+        <a href="partnership.html">Partnership</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html" class="mobile-contact-btn">Contact</a>
+        <a href="donate.html" class="mobile-donate-btn">Donate</a>
+      </div>
+    </header>
+
+    <section class="scholarship-section">
+      <h2>Application for Ablaze Foundation Scholarship Program</h2>
+
+      <div class="form-container">
+        <h3>Application Form</h3>
+
+        <form class="scholarship-form" id="scholarshipForm">
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input
+              type="text"
+              id="fullName"
+              placeholder="Enter your full name"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Enter your email address"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input
+              type="tel"
+              id="phone"
+              placeholder="Enter your phone number"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="location">Location</label>
+            <select id="location" required>
+              <option value="">Select your location</option>
+              <option value="lagos">Lagos</option>
+              <option value="abuja">Abuja</option>
+              <option value="enugu">Enugu</option>
+              <option value="portharcourt">Port Harcourt</option>
+              <option value="others">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="university">Name of the University</label>
+            <input
+              type="text"
+              id="university"
+              placeholder="Enter your university name"
+              required
+            />
+          </div>
+
+          <!-- Drag & Drop Upload -->
+          <div class="form-group file-upload">
+            <label>Upload File</label>
+            <div class="upload-box" id="uploadBox">
+              <p id="uploadText">
+                Drag and Drop here or <span>Browse Files</span>
+              </p>
+              <input
+                type="file"
+                id="file"
+                accept=".pdf,.jpg,.png,.jpeg"
+                hidden
+              />
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn">Submit Application</button>
+        </form>
+      </div>
+    </section>
+
+    <button id="backToTop" title="Go to top">↑</button>
+
+    <script src="/assets/js/main.js"></script>
+  </body>
+</html>

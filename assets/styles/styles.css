@@ -783,10 +783,19 @@ nav a:hover {
   transition: background 0.3s ease;
 }
 
+.see-more-btn a {
+  text-decoration: none;
+  color: #fff;
+}
+
 .see-more-btn:hover {
-  background: #fff;
+  background: var(--clr-primary);
   color: #1f2937;
   border: 1px solid var(--clr-primary);
+}
+.see-more-btn a:hover {
+  background: none;
+  color: #fff;
 }
 
 /* Contact Section */
@@ -1065,6 +1074,39 @@ header.scrolled .container {
 /* Shrinked logo */
 .logo img.shrink {
   height: 35px;
+}
+
+/* Scroll Reveal Base */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 1s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Optional variations */
+.reveal-left {
+  transform: translateX(-60px);
+  transform: scale(0.95);
+}
+.reveal-right {
+  transform: translateX(60px);
+  transform: scale(0.95);
+}
+.reveal-fade {
+  transform: scale(0.95);
+  opacity: 0;
+}
+
+.reveal-left.active,
+.reveal-right.active,
+.reveal-fade.active {
+  transform: translateX(0) scale(1);
+  opacity: 1;
 }
 
 /* ===========================
