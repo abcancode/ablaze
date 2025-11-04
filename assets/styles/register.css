@@ -146,7 +146,7 @@ body {
 }
 
 .signup-form button:hover {
-  background: var(--clr-secondary);
+  background: #e1bb43;
   transform: translateY(-2px);
 }
 
@@ -202,11 +202,15 @@ body {
   animation: bgZoom 8s ease-in-out infinite alternate;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
+/* 🌐 RESPONSIVE DESIGN */
+
+/* ---------- 992px and below (Small laptops / Large tablets) ---------- */
+@media (max-width: 992px) {
   .signup-section {
     flex-direction: column;
     height: auto;
+    max-width: 90%;
+    margin: 40px auto;
   }
 
   .signup-left,
@@ -215,12 +219,151 @@ body {
     border-radius: 0;
   }
 
+  .signup-left {
+    min-height: 320px;
+    padding: 60px 30px;
+    text-align: center;
+  }
+
+  .signup-left .logo {
+    margin: 0 auto 25px;
+  }
+
+  .signup-left h2 {
+    font-size: 30px;
+  }
+
+  .signup-left p {
+    font-size: 15px;
+  }
+
   .signup-right {
-    border-radius: 0;
-    padding: 40px 20px;
+    padding: 40px 25px;
   }
 
   .signup-form {
     width: 100%;
+    max-width: 450px;
+    margin: 0 auto;
+  }
+}
+
+/* ---------- 768px and below (Tablets / Large phones) ---------- */
+@media (max-width: 768px) {
+  .signup-section {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .signup-left {
+    padding: 50px 20px;
+    min-height: 280px;
+  }
+
+  .signup-left h2 {
+    font-size: 26px;
+  }
+
+  .signup-left p {
+    font-size: 14px;
+  }
+
+  .signup-form {
+    padding: 30px 20px;
+    border-radius: 16px;
+  }
+
+  .signup-form h3 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .signup-form input,
+  .signup-form button {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+
+  .login-text {
+    font-size: 13px;
+  }
+}
+
+/* ---------- 576px and below (Regular phones) ---------- */
+@media (max-width: 576px) {
+  body {
+    padding: 20px;
+  }
+
+  .signup-section {
+    max-width: 100%;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .signup-left {
+    padding: 40px 15px;
+  }
+
+  .signup-left .logo {
+    width: 100px;
+  }
+
+  .signup-left h2 {
+    font-size: 22px;
+  }
+
+  .signup-left p {
+    font-size: 13px;
+  }
+
+  .signup-form {
+    padding: 25px 15px;
+    gap: 12px;
+  }
+
+  .signup-form h3 {
+    font-size: 18px;
+  }
+
+  .signup-form input {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .signup-form button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .login-text {
+    font-size: 12px;
+  }
+}
+
+/* ---------- 400px and below (Small phones) ---------- */
+@media (max-width: 400px) {
+  .signup-left h2 {
+    font-size: 20px;
+  }
+
+  .signup-left p {
+    font-size: 12px;
+  }
+
+  .signup-form h3 {
+    font-size: 16px;
+  }
+
+  .signup-form input {
+    font-size: 12px;
+  }
+
+  .signup-form button {
+    font-size: 13px;
+  }
+
+  .login-text {
+    font-size: 11px;
   }
 }

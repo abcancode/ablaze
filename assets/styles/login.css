@@ -147,7 +147,7 @@ body {
 }
 
 .login-btn:hover {
-  background: var(--clr-secondary);
+  background: #e1bb43;
   transform: translateY(-2px);
 }
 
@@ -275,25 +275,197 @@ body {
   animation: bgZoom 8s ease-in-out infinite alternate;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .signup-section {
+/* 🌐 RESPONSIVE DESIGN */
+
+/* ---------- 992px and below (Small laptops / large tablets) ---------- */
+@media (max-width: 992px) {
+  .login-section {
+    flex-direction: column;
+    height: auto;
+    max-width: 90%;
+    margin: 50px auto;
+  }
+
+  .login-left,
+  .login-right {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .login-left {
+    min-height: 320px;
+    padding: 60px 30px;
+    text-align: center;
+  }
+
+  .login-left .logo {
+    margin: 0 auto 25px;
+  }
+
+  .login-left h2 {
+    font-size: 30px;
+  }
+
+  .login-left p {
+    font-size: 15px;
+  }
+
+  .login-right {
+    padding: 40px 25px;
+  }
+
+  .login-form {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .forgot-password {
+    position: static;
+    display: block;
+    text-align: right;
+    font-size: 12px;
+    margin-top: -5px;
+    margin-bottom: 15px;
+  }
+}
+
+/* ---------- 768px and below (Tablets / large phones) ---------- */
+@media (max-width: 768px) {
+  .login-section {
     flex-direction: column;
     height: auto;
   }
 
-  .signup-left,
-  .signup-right {
+  .login-left {
+    padding: 50px 20px;
+    min-height: 280px;
+  }
+
+  .login-left h2 {
+    font-size: 26px;
+  }
+
+  .login-left p {
+    font-size: 14px;
+  }
+
+  .login-form {
+    padding: 30px 20px;
+    border-radius: 16px;
+  }
+
+  .login-form h3 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .login-form input,
+  .login-form button {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+
+  .social-login {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .social-btn {
     width: 100%;
+    justify-content: center;
+  }
+
+  .login-text {
+    font-size: 13px;
+  }
+}
+
+/* ---------- 576px and below (Regular phones) ---------- */
+@media (max-width: 576px) {
+  body {
+    padding: 20px;
+  }
+
+  .login-section {
+    max-width: 100%;
+    box-shadow: none;
     border-radius: 0;
   }
 
-  .signup-right {
-    border-radius: 0;
-    padding: 40px 20px;
+  .login-left {
+    padding: 40px 15px;
   }
 
-  .signup-form {
-    width: 100%;
+  .login-left .logo {
+    width: 100px;
+  }
+
+  .login-left h2 {
+    font-size: 22px;
+  }
+
+  .login-left p {
+    font-size: 13px;
+  }
+
+  .login-form {
+    padding: 25px 15px;
+    gap: 12px;
+  }
+
+  .login-form h3 {
+    font-size: 18px;
+  }
+
+  .login-form input {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .login-form button {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .forgot-password {
+    text-align: right;
+    font-size: 12px;
+  }
+
+  .login-text {
+    font-size: 12px;
+  }
+}
+
+/* ---------- 400px and below (Small phones) ---------- */
+@media (max-width: 400px) {
+  .login-left h2 {
+    font-size: 20px;
+  }
+
+  .login-left p {
+    font-size: 12px;
+  }
+
+  .login-form h3 {
+    font-size: 16px;
+  }
+
+  .login-form input {
+    font-size: 12px;
+  }
+
+  .login-form button {
+    font-size: 13px;
+  }
+
+  .social-btn {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+
+  .login-text {
+    font-size: 11px;
   }
 }
