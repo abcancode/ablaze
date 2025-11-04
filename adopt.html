@@ -17,12 +17,12 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://ablazeimpactfoundation.com" />
-    <title>Contact Us | Ablaze Impact Foundation</title>
+    <title>Adopt a Student | Ablaze Impact Foundation</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
     />
-    <link rel="stylesheet" href="/assets/styles/contact.css" />
+    <link rel="stylesheet" href="/assets/styles/adopt.css" />
     <!-- <link
       rel="apple-touch-icon"
       sizes="180x180"
@@ -91,87 +91,154 @@
       </div>
     </header>
 
-    <!-- About Us Hero Section -->
-    <section class="about-hero">
-      <!-- Main Content -->
-      <div class="hero-content">
-        <h1>We are Available 24/7 <span>Contact Us</span></h1>
+    <!-- Hero Section -->
+    <section class="hero">
+      <!-- Left Content -->
+      <div class="hero-left">
+        <small>Sponsor a future</small>
+        <h1>Adopt a Student</h1>
         <p>
-          The Ablaze Impact Foundation is committed to transforming lives and
-          inspiring the younger generation through impactful community projects.
+          The ‘Adopt a Student’ platform in the Ablaze Impact Foundation, shall
+          provide an option for interested donors to sponsor a child through
+          educational or vocational training. The individual shall be
+          responsible for the Student for the duration of their program.
         </p>
-
-        <!-- Image and Icon Section -->
-        <div class="hero-contact">
-          <div class="hero-image">
-            <img
-              src="/assets/images/contact-us-image.png"
-              alt="Foundation Contact"
-            />
-          </div>
-          <div class="hero-icon">
-            <img
-              src="/assets/images/get-in-touch-icon.png"
-              alt="Contact Icon"
-            />
-          </div>
+        <div class="buttons">
+          <a href="#sponsor-a-student" class="apply-btn">Sponsor A Student</a>
+          <a href="partnership.html" class="partner-btn">Partner with Us</a>
         </div>
+      </div>
+
+      <!-- Right Content (Image) -->
+      <div class="hero-right">
+        <img
+          class="hero-image"
+          src="/assets/images/programs-hero-image.png"
+          alt="Hero Image"
+        />
+
+        <!-- Existing top-right icon -->
+        <img
+          src="/assets/images/decorative-icon.png"
+          alt="Decorative Shape"
+          class="hero-decor top-right"
+        />
+
+        <!-- New top-left icon -->
+        <img
+          src="/assets/images/left-image.png"
+          alt="Decorative Shape"
+          class="hero-decor top-left"
+        />
+
+        <!-- New bottom-right icon -->
+        <img
+          src="/assets/images/right-bottom-image.png"
+          alt="Decorative Shape"
+          class="hero-decor bottom-right"
+        />
       </div>
     </section>
 
-    <!-- Contact Us Section -->
-    <section class="contact">
-      <!-- LEFT: Contact Info -->
-      <div class="contact-text">
-        <h5>Contact Info</h5>
-
-        <div class="contact-item">
-          <i class="fa-solid fa-phone"></i>
-          <span>+234 803 308 3445</span>
-        </div>
-
-        <div class="contact-item">
-          <i class="fa-solid fa-envelope"></i>
-          <span>info@ablazeimpactfoundation.com</span>
-        </div>
-
-        <div class="contact-item">
-          <i class="fa-solid fa-location-dot"></i>
-          <span>Lagos, Nigeria</span>
-        </div>
-
-        <div class="social-links">
-          <h6>Social Links</h6>
-          <div class="social-icons">
-            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-            <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-          </div>
-        </div>
+    <!-- Sponsorship Cost Section -->
+    <section class="sponsorship-cost">
+      <p class="section-intro">Sponsorship cost</p>
+      <h3>Estimated Sponsorship Cost</h3>
+      <div class="sponsorship-cost-container">
+        <p>
+          We cover tuition fees for each student and, in addition, provide a
+          monthly upkeep allowance of ₦100,000 to support their living expenses.
+          This approach ensures that beneficiaries are not only enrolled in
+          school but also have the financial stability needed to focus on their
+          studies. Taking these commitments into account, we estimated the total
+          cost per student at approximately ₦1,000,000. This figure reflects
+          both the tuition fees and the monthly upkeep.
+        </p>
       </div>
+    </section>
 
-      <!-- RIGHT: Contact Form -->
-      <div class="contact-right-image">
-        <div class="form-overlay">
-          <div class="form-wrapper">
-            <h2>Let's Chat</h2>
-            <h3>Message Us</h3>
+    <hr />
 
-            <form action="#" class="contact-right-form">
-              <div class="name-fields">
-                <input type="text" placeholder="First Name" required />
-                <input type="text" placeholder="Last Name" required />
-              </div>
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+      <h4>How It Works</h4>
+      <div class="how-it-works-container">
+        <p>
+          Candidates shall be selected into the program, following review of
+          credentials and assessment of the prospective candidates. Nomination
+          of candidates shall be through diverse verifiable sources, which shall
+          include family members, friends, parishioners, members of
+          congregations, etc. What is important is that the prospective students
+          are verified and can provide valid referees. Candidate shall be at
+          pre-admission stage at the least and First year of their program at
+          the most. Funding shall be for the duration of the program the
+          prospective student is admitted into.
+        </p>
+      </div>
+    </section>
 
-              <input type="email" placeholder="Email Address" required />
+    <hr />
 
-              <textarea placeholder="Your Message" rows="5" required></textarea>
+    <!-- Sponsor Form Section -->
+    <section class="sponsor-section" id="sponsor-a-student">
+      <div class="sponsor-form-container">
+        <form class="sponsor-form">
+          <h3>Sponsor Signup</h3>
 
-              <button type="submit">Send Message</button>
-            </form>
+          <!-- Full Name -->
+          <div class="form-group">
+            <input type="text" id="fullName" placeholder="Full Name" required />
           </div>
-        </div>
+
+          <!-- Email Address-->
+          <div class="form-group">
+            <input
+              type="email"
+              id="email"
+              placeholder="Email Address"
+              required
+            />
+          </div>
+
+          <!-- Phone Number -->
+          <div class="form-group">
+            <input type="tel" id="phone" placeholder="Phone Number" required />
+          </div>
+
+          <!-- Sponsorship Plan -->
+          <div class="form-group">
+            <label for="sponsorship-plan">Sponsorship Plan</label>
+            <select id="sponsorship-plan" name="sponsorship-plan">
+              <option value="">Please select</option>
+              <option value="card">Credit / Debit Card</option>
+              <option value="bank">Bank Transfer</option>
+            </select>
+          </div>
+
+          <!-- Payment Option -->
+          <div class="form-group">
+            <label for="payment-option">Payment Options</label>
+            <select id="payment-option" name="payment-option">
+              <option value="">Select Payment Option</option>
+              <option value="card">Credit / Debit Card</option>
+              <option value="bank">Bank Transfer</option>
+            </select>
+          </div>
+
+          <!-- Student to sponsor -->
+          <div class="form-group">
+            <label for="sponsored-student">Student to sponsor</label>
+            <input
+              type="text"
+              id="sponsoredStudent"
+              placeholder="Enter student's name"
+              required
+            />
+          </div>
+
+          <!-- Sponsor Button -->
+          <button type="submit" class="sponsor-btn">Submit</button>
+        </form>
       </div>
     </section>
 
